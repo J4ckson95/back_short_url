@@ -4,7 +4,6 @@ export interface Urls extends Document {
   shortUrl: string;
   createdAt: Date;
   expiresAt: Date;
-  ownerId?: ObjectId;
   clicks: number;
 }
 export interface Users extends Document {

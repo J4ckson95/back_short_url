@@ -1,8 +1,13 @@
 import Express from "express";
-
-const PORT: number = 8085;
+import mongoose from "mongoose";
+import config from "./config/config";
 
 const app = Express();
 app.use(Express.json());
 
-app.listen(PORT, () => console.log(`Running Server at port: ${PORT}`));
+mongoose.connect(config.MONGOURL, { dbName: config.DBNAME }).then(() => {
+  console.log("DB Connected");
+  app.listen(config.PORT, () =>
+    console.log(`Running Server at port: ${config.PORT}`)
+  );
+});

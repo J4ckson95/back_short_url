@@ -6,7 +6,6 @@ const urlSchema = new mongoose.Schema<Urls>({
   shortUrl: { type: String, required: true, unique: true },
   createdAt: { type: Date, default: Date.now },
   expiresAt: { type: Date },
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   clicks: { type: Number, default: 0 },
 });
 const urlModel = mongoose.model<Urls>("url", urlSchema);
